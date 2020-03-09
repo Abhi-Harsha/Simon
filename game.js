@@ -13,7 +13,25 @@ function generateNum() {
   if (gameStarted) {
     var generatedNum = Math.floor(Math.random() * 4);      // returns a random integer from 0 to 3
     console.log("Generated num " + generatedNum);
+    flashButton(generatedNum);
     generatedNumbers.push(generatedNum);
+  }
+}
+
+function flashButton(buttonId) {
+  switch (buttonId) {
+    case buttons.green:
+      $(".green").fadeOut(100).fadeIn(100);
+      break;
+    case buttons.red:
+      $(".red").fadeOut(100).fadeIn(100);
+      break;
+    case buttons.yellow:
+      $(".yellow").fadeOut(100).fadeIn(100);
+      break;
+    case buttons.blue:
+      $(".blue").fadeOut(100).fadeIn(100);
+      break;
   }
 }
 
@@ -27,7 +45,7 @@ function handleGameStatus() {
 function restartGame() {
   gameStarted = false;
   gameInProgress = false;
-  $("#level-title").text("Press Any key to start");
+  $("#level-title").text("Game Over! Press Any key to start");
   userClickedNumbers = [];
   generatedNumbers = [];
 }
