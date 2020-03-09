@@ -21,18 +21,31 @@ function generateNum() {
 function flashButton(buttonId) {
   switch (buttonId) {
     case buttons.green:
-      $(".green").fadeOut(100).fadeIn(100);
+      animateButton("green");
+      playSound("green");
       break;
     case buttons.red:
-      $(".red").fadeOut(100).fadeIn(100);
+      animateButton("red");
+      playSound("red");
       break;
     case buttons.yellow:
-      $(".yellow").fadeOut(100).fadeIn(100);
+      animateButton("yellow");
+      playSound("yellow");
       break;
     case buttons.blue:
-      $(".blue").fadeOut(100).fadeIn(100);
+      animateButton("blue");
+      playSound("blue");
       break;
   }
+}
+
+function animateButton(className) {
+  $("." + className).fadeOut(100).fadeIn(100);
+}
+
+function playSound(sourceFileName) {
+  var audio = new Audio("sounds/" + sourceFileName + ".mp3");
+  audio.play();
 }
 
 function handleGameStatus() {
